@@ -1,0 +1,70 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>
+					Rails WebPush <small> - Demo</small>
+				</h1>
+			</div> 
+			<button type="button" class="btn btn-default" onclick="sendPush()">
+				Send WebPush
+			</button>
+		</div>
+	</div>
+</div>
+
+<script>
+	function sendPush(){
+		getKeys(false)
+	}
+
+var vapidPublicKey = new Uint8Array(<%=Base64.urlsafe_decode64($vapid_public).bytes%>);
+
+function checkNotifs(obj){
+   if (!("Notification" in window)) {                                             //1
+        console.error("This browser does not support desktop notification");
+      }
+      // Let's check whether notification permissions have already been granted
+      else if (Notification.permission === "granted") {                           //2
+        console.log("Permission to receive notifications has been granted");
+        getKeys()
+      }
+      // Otherwise, we need to ask the user for permission
+      else if (Notification.permission !== 'denied') {                            //3
+        Notification.requestPermission(function (permission) {                    
+              // If the user accepts, let's create a notification
+          if (permission === "granted") {                                         //4
+            console.log("Permission to receive notifications has been granted");
+            getKeys();                                                       
+          } 
+        });
+     }
+}
+
+  function getKeys(){
+    navigator.serviceWorker.register('/serviceworker.js', {scope: './'})          //5
+      .then(function(registration) {
+        return registration.pushManager.getSubscription()
+          .then(function(subscription) {
+            if (subscription) {
+              return subscription;
+            }
+            return registration.pushManager.subscribe({                           //6
+              userVisibleOnly: true,
+              applicationServerKey: vapidPublicKey
+            });
+          });
+      }).then(function(subscription) {
+      		sendNo(subscription.toJSON())     
+                                           //7
+      });
+  }
+
+  function sendNo(subscription){
+	$.post('/sendNo', {
+    	subscription: subscription,
+        message: 'You clicked a button!'
+     });
+  }
+
+</script>

@@ -1,0 +1,19 @@
+common: &common
+  adapter: postgresql
+  host: localhost
+  port: <%= ENV["BOXEN_POSTGRESQL_PORT"] || '5432' %>
+  username: 'postgres'
+  password: 'pass'
+  encoding: unicode
+
+development: &development
+  <<: *common
+  database: "webpush_demo"
+
+production: &production
+  <<: *common
+  database: "webpush_demo"
+
+test: &test
+  <<: *common
+  database: "cview_test<%= ENV['TEST_ENV_NUMBER'] %>"

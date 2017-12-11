@@ -1,0 +1,2 @@
+class NotificationDatum < ApplicationRecord
+end
