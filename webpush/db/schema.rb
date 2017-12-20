@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20171211042828) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "notification_data", force: :cascade do |t|
     t.string "endpoint"
     t.string "p256dh_key"
