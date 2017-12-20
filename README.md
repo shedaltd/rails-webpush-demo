@@ -1,4 +1,4 @@
-#Using Vapid for Web Push Notifications in a Ruby on Rails Application
+# Using Vapid for Web Push Notifications in a Ruby on Rails Application
 
 This is demo project that accompanies a blog post on using (VAPID for Push notifications in Rails)[]
 
