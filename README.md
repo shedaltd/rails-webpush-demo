@@ -118,7 +118,7 @@ Finally, now you have all of the data necessary, you can send out a message to y
 
 <script src="https://gist.github.com/lachlanagnew/4baa96de9df0233e7b298aedb166d0ab.js"></script>
 
-With the details sent in from the subscription, save that to a model and then when you want to send out data send it out using webpush.
+With the subscription details saved under your users data table you can send out a push notification to that user using the webpush gem as shown above.
 We should then see a notification get triggered. 
 
 You can access a [Rails Web Push demo project](https://github.com/seedtech/rails-webpush-demo) via our Github.
