@@ -1,6 +1,6 @@
 #Using Vapid for Web Push Notifications in a Ruby on Rails Application
 
-This is demo project that accompanies my blog post on using (VAPID for Push notifications in Rails)[]
+This is demo project that accompanies a blog post on using (VAPID for Push notifications in Rails)[]
 
 
 In this post we will go through how to implement web push functionality in a Ruby on Rails project using VAPID.
@@ -119,12 +119,18 @@ Finally, now you have all of the data necessary, you can send out a message to y
 <script src="https://gist.github.com/lachlanagnew/4baa96de9df0233e7b298aedb166d0ab.js"></script>
 
 With the details sent in from the subscription, save that to a model and then when you want to send out data send it out using webpush.
-We should then see a notification get triggered. This is still a very new technology so it will most likely change rapidly.
+We should then see a notification get triggered. 
+
+You can access a [Rails Web Push demo project](https://github.com/seedtech/rails-webpush-demo) via our Github.
+
+The [README](rails-webpush-demo/README.md) has details on how to run this service.
 
 Further reading:
 https://web-push-book.gauntface.com/
 https://rossta.net/blog/using-the-web-push-api-with-vapid.html
 https://tools.ietf.org/html/draft-ietf-webpush-protocol-12
+
+
 
 
 
