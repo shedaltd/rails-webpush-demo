@@ -13,7 +13,7 @@ To get Web Push working you’ll need:
 
 ## Implementing Web Push
 
-###Setup Vapid Keys
+### Setup Vapid Keys
 - First step in sending a push message is to set up a pair of one time VAPID keys (public/private) to be saved on your server. These keys will be used to sign the Push API requests. VAPID keys are used as a means of encrypting and sending messages using the web push protocol without needing to send it through a service like Google Cloud Messaging.
 - A `manifest.json` file that helps to identify your application 
 - You will need to set up a service worker and install on the user’s browser, the service works is subscribed to push events with your public VAPID key.
